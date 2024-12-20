@@ -26,7 +26,17 @@ class HomePager extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: Feed(),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Feed();
+        },
+        /**
+         * ListView Builder를 사용해서 리스트뷰를 구현하는 경우
+         * 안드로이드의 LazyList 처럼 현재 화면에 보이는 부분만 
+         * 아이템을 생성하기 떼문에 효율적으로 리스트뷰를 구현할 수 있음
+         */
+      ),
     );
   }
 }

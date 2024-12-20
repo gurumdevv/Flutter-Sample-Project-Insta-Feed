@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 class Feed extends StatefulWidget {
   const Feed({
     super.key,
+    required this.imageUrl, //Feed 인스턴스가 생성될 때 imageUrl을 할당
   });
+
+  final String imageUrl; //생성자가 호출되면서 초기화 됨
 
   @override
   State<Feed> createState() => _FeedState();
 }
 
 class _FeedState extends State<Feed> {
+  //_으로 시작하는 것은 같은 파일 내부에서만 접근 가능
   bool isFavorite = false; //좋아요 여부
 
   @override
@@ -20,7 +24,7 @@ class _FeedState extends State<Feed> {
       children: [
         // 이미지
         Image.network(
-          "https://i.ibb.co/YjjLCS7/cat.png",
+          widget.imageUrl,
           height: 400,
           width: double.infinity,
           fit: BoxFit.cover,
